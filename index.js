@@ -1,9 +1,8 @@
 (function(){
-  var globType;
   try {
     if(window.console) void 0;
     window.csvParser = Parser;
-  } catch() {
+  } catch {
     global.csvParser = Parser;
   };
 }());
@@ -13,7 +12,7 @@ function Parser(input){
   return input
   .split("\n")
   .map(function(x){ return x.split(",") })
-  .map(function(x) => x.filter(function(y) => y !== ''))
-  .map(function(x) => x.map(function(y) => y.replace('\r','')))
-  .filter(function(x) => !!x && !!x.length)
+  .map(function(x){ return x.filter(function(y){ return y !== '' }) })
+  .map(function(x){ return x.map(function(y){ return y.replace('\r','') }) })
+  .filter(function(x){ return !!x && !!x.length })
 };
