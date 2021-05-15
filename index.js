@@ -1,5 +1,11 @@
 (function(){
-  global.csvParser = Parser;
+  var globType;
+  try {
+    if(window.console) void 0;
+    window.csvParser = Parser;
+  } catch() {
+    global.csvParser = Parser;
+  };
 }());
 
 function Parser(input){
