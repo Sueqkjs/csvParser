@@ -20,7 +20,7 @@ csvParser で察しろ、2次元配列で返す奴だ
  require('./csvParser/index.js');
  const fs = require('fs');
  const bots = fs.readFileSync('./2000kBots.csv');
- csvParser(String(bots));
+ csvParser(bots);
 ```
 
 ### CommonJS
