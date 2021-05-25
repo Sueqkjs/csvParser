@@ -10,11 +10,12 @@
 function Parser(){
   var that = {};
   
-  that["parse"] = function parse(input){
+  that["parse"] = function parse(input, reviver){
+    if(!reviver) reviver = new Function('return void 0;');
     return input.split("\n")
-      .map(function(x){ return x.split(",") })
-      .map(function(x){ return x.filter(function(y){ return y !== '' }) })
-      .map(function(x){ return x.map(function(y){ return y.replace('\r','') }) })
+      .map(function(x){ return reviver(x) || x.split(",") })
+      .map(function(x){ return reviver(x) || x.filter(function(y){ return y !== '' }) })
+      .map(function(x){ return reviver(x) || x.map(function(y){ return y.replace('\r','') }) })
       .filter(function(x){ return !!x && !!x.length });
   };
   that["stringify"] = function stringify(input){
