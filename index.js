@@ -20,6 +20,6 @@ function Parser(){
   that["stringify"] = function stringify(input){
     return input.map(x => x.join(','))
     .join('\n');
-  });
+  };
   return that;
 };
