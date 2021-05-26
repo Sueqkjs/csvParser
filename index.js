@@ -22,6 +22,7 @@ function Parser(){
     return input.map(x => x.join())
     .join('\n');
   };
-  
+  Object.freeze(that);
+  Object.seal(that);
   return that;
 };
