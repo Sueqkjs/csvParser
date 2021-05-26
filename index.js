@@ -11,7 +11,7 @@ function Parser(){
   var that = {};
   
   that["parse"] = function parse(input, reviver){
-    if(typeof reviver !== "function" || !reviver) reviver = new Function('return void 0;');
+    if(typeof reviver !== "function") reviver = new Function('return void 0;');
     return input.split("\n")
       .map(function(x){ return reviver(x, 0) || x.split(",") })
       .map(function(x){ return reviver(x, 1) || x.filter(function(y){ return reviver(y, 2) || y !== '' }) })
@@ -22,5 +22,6 @@ function Parser(){
     return input.map(x => x.join())
     .join('\n');
   };
+  
   return that;
 };
