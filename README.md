@@ -18,12 +18,17 @@ csvParser で察しろ、2次元配列で返す奴だ
 
 ```js
  require('./csvParser/index.js');
+ const csv = new csvParser();
  const fs = require('fs');
+ // parse
  const bots = fs.readFileSync('./2000kBots.csv');
- csvParser(bots);
+ console.log(csv.parse(bots));
+ // stringify
+ const commasplit = [ [ 'a', 'b', 'c' ], [ 'n', 'o', 'p' ] ];
+ console.log(csv.stringify(commasplit));
 ```
 
-### CommonJS
+### Webでの使用例
 ローカルにファイル持ってこよう
 
 ```html
