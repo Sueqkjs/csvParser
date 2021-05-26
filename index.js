@@ -19,7 +19,7 @@ function Parser(){
       .filter(function(x){ return !!x && !!x.length });
   };
   that["stringify"] = function stringify(input){
-    return input.map(x => x.join(','))
+    return input.map(x => x.join())
     .join('\n');
   };
   return that;
