@@ -9,7 +9,7 @@
   };
 }());
 
-function Parser() {
+function Parser({ safe }) {
   var that = Object.create(null);
   
   Object.defineProperty(that, "parse", {
@@ -55,7 +55,13 @@ function Parser() {
     value: function stringify(input){
       return input.map(
         function(x) {
-          return x.join()
+          return x.map(
+            function(y) {
+              if(safe) return y.replace(/,/g,'');
+              return y;
+            }
+          )
+          .join();
         }
       )
         .join("\n");
