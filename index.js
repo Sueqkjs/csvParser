@@ -9,8 +9,11 @@
   };
 }());
 
-function Parser({ safe }) {
+function Parser(options) {
   var that = Object.create(null);
+  
+  if(!options) options = {};
+  var safe = options.safe;
   
   Object.defineProperty(that, "parse", {
     value: function parse(input, reviver) {
