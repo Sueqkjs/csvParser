@@ -60,7 +60,7 @@ function Parser(options) {
         function(x) {
           return x.map(
             function(y) {
-              if(safe) return y.replace(/,/g,'');
+              if(safe) return y.replace(/,/g, "");
               return y;
             }
           )
