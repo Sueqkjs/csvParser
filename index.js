@@ -10,7 +10,7 @@
 }());
 
 function Parser(options) {
-  var that = Object.create(null);
+  var that = {};
   
   if(!options) options = {};
   var safe = options.safe;
@@ -72,6 +72,5 @@ function Parser(options) {
   });
   
   Object.freeze(that);
-  Object.seal(that);
   return that;
 };
