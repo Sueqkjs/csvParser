@@ -18,7 +18,7 @@ csvParser で察しろ、2次元配列で返す奴だ
 
 ```js
  require('./csvParser/index.js');
- const csv = new csvParser();
+ const csv = new csvParser("csv"); // Supported "tsv" and "csv"
  const fs = require('fs');
  // parse
  const bots = fs.readFileSync('./2000kBots.csv');
